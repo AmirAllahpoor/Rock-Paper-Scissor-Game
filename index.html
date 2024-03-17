@@ -21,13 +21,18 @@
     <title> Rock Paper Scissor Game </title>
 
   </head>
-  <body>
+  <body id="body">
 
     <div class="box-game">
       <div class="game">
+        
+        <div class="score">
+          <p id="MyScore">My Score : 0</p>
+          <p id="HarifScore">Opponent's Score : 0</p>
+        </div>
+
         <div class="game-row1">
           <img src="img/rockleft.png"alt="imgleft" id="img-left">
-          <img src="img/pngtree-3d-text-vs-versus-in-black-and-purple-color-png-image_2892939_prev_ui.png" alt="imgvs" id="img-vs">
           <img src="img/rockright.png" alt="imgright" id="img-right">
         </div>
         <div class="game-row2">
@@ -35,26 +40,23 @@
            <img src="img/paperleft.png" alt="imgstart" id="imgstart-paper">
            <img src="img/scirossleft.png" alt="imgstart" id="imgstart-scissor">
         </div>
-        <div class="score">
-          <p id="score-text">My Score : 0</p>
-        </div>
+        
       </div>
     </div>
 
 
-    <div class="terminal-loader">
-      <div class="terminal-header">
-        <div class="terminal-title">Status</div>
-        <div class="terminal-controls">
-          <div class="control close"></div>
-          <div class="control minimize"></div>
-          <div class="control maximize"></div>
-        </div>
-      </div>
-      <div class="text">Loading...</div>
+    <div class="container">
+      <div class="dot dot-1"></div>
+      <div class="dot dot-2"></div>
+      <div class="dot dot-3"></div>
     </div>
     
+    
+    
+
+    <div class="overlay"></div>
 
   </body>
 </html>
+<script src="https://files.free-learn.ir/Tryitself/javascript/intro/files/sweetalert2.js"></script>
 <script src="js/app.js"></script>

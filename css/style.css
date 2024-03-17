@@ -1,38 +1,46 @@
-.box-game.active{
-    display: none;
+#body{
+  background-color: rgb(0, 8, 38);
 }
 .box-game{
-    display: block;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 60px;
+    z-index: 50;
 }
 .game{
     width: 90%;
     height: 600px;
-    background-image: url(/img/background.png);
+    background-image: url(/img/25143.jpg);
     background-position: center;
     background-size: cover;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.423);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.414);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-:is(.game-row1 , .game-row2){
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 90%;
+    justify-content: space-between;
     align-items: center;
 }
 .game-row1{
-    justify-content: space-evenly;
-    margin-top: 90px;
+    justify-content: space-around;
+     position: absolute;
+     top: 310px;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    align-items: center;
 }
+.game-row2{
+  display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    position: absolute;
+    top: 580px;
+    margin-left: 50px;
+}
+
 
 :is(#imgstart-rock , #imgstart-paper , #imgstart-scissor){
     width: 55px;
@@ -52,107 +60,173 @@
 }
 :is(#img-left , #img-right){
     width: 140px;
-    opacity: 0.4;
+    opacity: 0.6;
 }
-#img-vs{
-    width: 300px;
+
+:is(#HarifScore , #MyScore){
+  color: white;
+  font-size: 20px;
 }
+.score{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 20px;
+}
+
 
 /* Loader */
+.container{
+  display: none;
+  z-index: 100;
+}
+.container.active {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  filter: url("#goo");
+  animation: rotate-move 2s ease-in-out infinite;
+  display: block;
+  z-index: 100;
+}
 
-@keyframes blinkCursor {
-    50% {
-      border-right-color: transparent;
-    }
+.dot {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.dot-3 {
+  background-color: #ff1717;
+  animation: dot-3-move 2s ease infinite, index 6s ease infinite;
+}
+
+.dot-2 {
+  background-color: #0051ff;
+  animation: dot-2-move 2s ease infinite, index 6s -4s ease infinite;
+}
+
+.dot-1 {
+  background-color: #ffc400;
+  animation: dot-1-move 2s ease infinite, index 6s -2s ease infinite;
+}
+
+@keyframes dot-3-move {
+  20% {
+    transform: scale(1);
   }
+  45% {
+    transform: translateY(-18px) scale(0.45);
+  }
+  60% {
+    transform: translateY(-90px) scale(0.45);
+  }
+  80% {
+    transform: translateY(-90px) scale(0.45);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes dot-2-move {
+  20% {
+    transform: scale(1);
+  }
+  45% {
+    transform: translate(-16px, 12px) scale(0.45);
+  }
+  60% {
+    transform: translate(-80px, 60px) scale(0.45);
+  }
+  80% {
+    transform: translate(-80px, 60px) scale(0.45);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes dot-1-move {
+  20% {
+    transform: scale(1);
+  }
+  45% {
+    transform: translate(16px, 12px) scale(0.45);
+  }
+  60% {
+    transform: translate(80px, 60px) scale(0.45);
+  }
+  80% {
+    transform: translate(80px, 60px) scale(0.45);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes rotate-move {
+  55% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  80% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes index {
+  0%,
+  100% {
+    z-index: 3;
+  }
+  33.3% {
+    z-index: 2;
+  }
+  66.6% {
+    z-index: 1;
+  }
+}
+
   
-  @keyframes typeAndDelete {
-    0%,
-    10% {
-      width: 0;
-    }
-    45%,
-    55% {
-      width: 6.2em;
-    } /* adjust width based on content */
-    90%,
-    100% {
-      width: 0;
-    }
-  }
-  
-  .terminal-loader{
-    display: none;
-  }
-  .terminal-loader.active {
-    border: 0.1em solid #333;
-    background-color: #1a1a1a;
-    color: #0f0;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 1em;
-    padding: 1.5em 1em;
-    width: 12em;
-    margin: 100px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    position: relative;
-    overflow: hidden;
-    box-sizing: border-box;
-    margin-top: 250px;
-    display: block;
-  }
-  
-  .terminal-header {
-    position: absolute;
+
+  /* Overlay */
+
+  .overlay{
+    position: fixed;
     top: 0;
-    left: 0;
     right: 0;
-    height: 1.5em;
-    background-color: #333;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    padding: 0 0.4em;
-    box-sizing: border-box;
-  }
-  
-  .terminal-controls {
-    float: right;
-  }
-  
-  .control {
-    display: inline-block;
-    width: 0.6em;
-    height: 0.6em;
-    margin-left: 0.4em;
-    border-radius: 50%;
-    background-color: #777;
-  }
-  
-  .control.close {
-    background-color: #e33;
-  }
-  
-  .control.minimize {
-    background-color: #ee0;
-  }
-  
-  .control.maximize {
-    background-color: #0b0;
-  }
-  
-  .terminal-title {
-    float: left;
-    line-height: 1.5em;
-    color: #eee;
-  }
-  
-  .text {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 0.2em solid green; /* Cursor */
-    animation: typeAndDelete 4s steps(11) infinite,
-      blinkCursor 0.5s step-end infinite alternate;
-    margin-top: 1.5em;
-  }
-  
+    left: 0;
+    bottom: 0;
+    z-index: 97;
+    display: none;
+    transition: all 0.7s;
+}
+.overlay.active{
+      position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 97;
+    display: block;
+    background-color: #000000ba;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    transition: all 0.7s;
+}
+
