@@ -139,7 +139,7 @@ imgstart.forEach(startbtn => {
 
         }
 
-        if(myscorenumber === 10 || OpponentsScoreNumber === 10 ){
+        if(myscorenumber === 50 || OpponentsScoreNumber === 50 ){
             if(myscorenumber > OpponentsScoreNumber){
                 Tabrik()
             }
