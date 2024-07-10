@@ -107,7 +107,6 @@ imgstart.forEach(startbtn => {
         imgright.src = RandomIMG[cnt]
         imgright.style.opacity = 1;
 
-
         if(
             imgleft.src.includes('rock') & imgright.src.includes('sciross') ||
              imgleft.src.includes('paper') & imgright.src.includes('rock') ||

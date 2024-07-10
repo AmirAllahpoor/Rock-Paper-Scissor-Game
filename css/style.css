@@ -230,3 +230,29 @@
     transition: all 0.7s;
 }
 
+@media only screen and (max-width: 900px) {
+  .game-row2{
+    top: auto;
+    bottom: 40px;
+    justify-content: end;
+    margin-left: 0px;
+  }
+  :is(#img-left , #img-right){
+    width: 110px;
+    margin-top: 20px;
+  }
+  .score {
+    flex-direction: column;
+  }
+  .game-row1{
+    justify-content: space-between;
+  }
+  .box-game {
+    margin-top: 0px;
+  }
+  .game {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0px;
+  }
+}
